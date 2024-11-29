@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Configuration de MongoDB
-mongoose.connect('mongodb+srv://<username>:<password>@messagerie.ckrck.mongodb.net/focusApp?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://database:admin1234@messagerie.ckrck.mongodb.net/?retryWrites=true&w=majority&appName=FocusApp', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
