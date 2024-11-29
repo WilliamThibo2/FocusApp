@@ -7,6 +7,28 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+<canvas id="statsChart" width="400" height="200"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('statsChart').getContext('2d');
+  const statsChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Sessions Pomodoro', 'Tâches Terminées'],
+      datasets: [{
+        label: 'Statistiques',
+        data: [<%= totalMinutes %>, <%= tasksCompleted %>],
+        backgroundColor: ['#FF6384', '#36A2EB'],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+</script>
   <h1>Liste des Tâches</h1>
 <form action="/add" method="POST">
   <input type="text" name="title" placeholder="Nouvelle tâche" required>
