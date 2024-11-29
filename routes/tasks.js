@@ -1,19 +1,17 @@
 const express = require('express');
-const router = express.Router();
 const Task = require('../models/Task');
+const router = express.Router();
 
-// Page d'accueil avec la liste des tâches
+// Page d'accueil avec les tâches
 router.get('/', async (req, res) => {
   const tasks = await Task.find();
   res.render('index', { tasks });
 });
 
-// Ajouter une nouvelle tâche
+// Ajouter une tâche
 router.post('/add', async (req, res) => {
   const { title } = req.body;
-  if (title) {
-    await Task.create({ title });
-  }
+  await Task.create({ title });
   res.redirect('/');
 });
 
