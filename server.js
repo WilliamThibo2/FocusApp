@@ -6,6 +6,7 @@ const path = require('path');
 // Importation des routes
 const taskRoutes = require('./routes/tasks');
 const statsRoutes = require('./routes/stats');
+const schedule = require('node-schedule');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -26,6 +27,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', taskRoutes);
 app.use('/stats', statsRoutes);
+
+// Notification toutes les 30 minutes
+schedule.scheduleJob('*/30 * * * *', () => {
+  console.log('Petit rappel : restez concentré !');
+});
 
 // Lancer le serveur
 app.listen(PORT, () => {
