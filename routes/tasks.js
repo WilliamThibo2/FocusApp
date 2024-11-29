@@ -34,4 +34,11 @@ router.post('/add', async (req, res) => {
   res.redirect('/');
 });
 
+// Ajouter une tâche avec une catégorie
+router.post('/add', async (req, res) => {
+  const { title, priority, category } = req.body;
+  await Task.create({ title, priority, category });
+  res.redirect('/');
+});
+
 module.exports = router;
