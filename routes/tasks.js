@@ -1,5 +1,5 @@
 const express = require('express');
-const Task = require('../models/Task');
+const Task = require('../models/Task'); // Assurez-vous que le chemin est correct
 const router = express.Router();
 
 // Page d'accueil avec les tâches
