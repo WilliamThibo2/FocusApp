@@ -27,4 +27,11 @@ router.post('/delete/:id', async (req, res) => {
   res.redirect('/');
 });
 
+// Ajouter une tâche avec priorité
+router.post('/add', async (req, res) => {
+  const { title, priority } = req.body;
+  await Task.create({ title, priority });
+  res.redirect('/');
+});
+
 module.exports = router;
