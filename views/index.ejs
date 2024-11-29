@@ -3,20 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Helper - Tâches</title>
   <link rel="stylesheet" href="/css/styles.css">
-  <title>Focus Helper</title>
 </head>
 <body>
-  <h1>Focus Helper</h1>
+  <h1>Liste des Tâches</h1>
   <form action="/add" method="POST">
-    <input type="text" name="title" placeholder="Nouvelle tâche..." required>
+    <input type="text" name="title" placeholder="Nouvelle tâche" required>
     <button type="submit">Ajouter</button>
   </form>
-
   <ul>
     <% tasks.forEach(task => { %>
       <li>
-        <%= task.title %>
+        <span><%= task.title %></span>
         <% if (!task.completed) { %>
           <form action="/complete/<%= task._id %>" method="POST" style="display:inline;">
             <button type="submit">Terminer</button>
@@ -26,7 +25,7 @@
           <button type="submit">Supprimer</button>
         </form>
       </li>
-    <% }); %>
+    <% }) %>
   </ul>
 </body>
 </html>
