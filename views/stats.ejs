@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Helper - Statistiques</title>
+</head>
+<body>
+  <h1>Statistiques</h1>
+  <p>Temps total de concentration : <%= totalMinutes %> minutes</p>
+  <form action="/stats/add-session" method="POST">
+    <input type="number" name="duration" placeholder="Durée (en minutes)" required>
+    <button type="submit">Ajouter une session</button>
+  </form>
+</body>
+</html>
